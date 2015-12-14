@@ -1,2 +1,8 @@
-#!/bin/sh
-screen -R ludumdare ./runNode.sh
+#!/bin/bash
+if [ -f running ]; then
+	screen -r ludumdare
+else 
+	sleep 5
+	screen -dmS ludumdare sh ludumdare.sh
+	touch running
+fi

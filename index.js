@@ -58,7 +58,7 @@ app.get('/user/:id',function(req,res){
 
 app.get('/level/:level/record',function(req,res){
 	console.log("Getting level record for level "+req.params.level);
-	connection.query("SELECT score FROM levelscores WHERE level = ? ORDER BY score DESC LIMIT 1",req.params.level,function(err,rows,fields){
+	connection.query("SELECT score FROM levelscores WHERE level = ? ORDER BY score ASC LIMIT 1",req.params.level,function(err,rows,fields){
 		if(rows.length < 1){
 			res.send(-1+"");
 			return;
